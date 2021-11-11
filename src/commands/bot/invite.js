@@ -1,4 +1,5 @@
 const { inviteLink } = require("../../../config.json");
+const { MessageActionRow, MessageButton } = require("discord.js");
 
 module.exports = {
   commandName: "bot",
@@ -15,7 +16,6 @@ module.exports = {
       .setStyle("LINK")
       .setURL(`${inviteLink}`)
     ]);
-
 
     return interaction.reply({ ephemeral: true, embeds: [embed], components: [row] });
   }

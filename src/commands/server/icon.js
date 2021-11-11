@@ -7,7 +7,7 @@ module.exports = {
     const icon = interaction.guild?.iconURL({ dynamic: true, size: 4096 });
 
     if (!icon)
-      return bot.say.worngMessage(interaction, "This guild have not set any icon yet.");
+      return bot.say.wrongMessage(interaction, "This guild have not set any icon yet.");
 
     const embed = bot.say.baseEmbed(interaction)
       .setDescription(`[Click here to download.](${icon})`)

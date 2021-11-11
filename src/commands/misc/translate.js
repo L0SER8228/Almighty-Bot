@@ -25,7 +25,7 @@ module.exports = {
     const sentence = interaction.options.getString("sentence", true);
 
     if (sentence.length > 1500)
-      return bot.say.worngMessage(interaction, "Please use sentence below 1500 character.");
+      return bot.say.wrongMessage(interaction, "Please use sentence below 1500 character.");
 
     const result = await googleTranslate(sentence, { to: language });
 

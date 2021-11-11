@@ -28,12 +28,12 @@ module.exports = {
     const available = await isAvailable(url);
 
     if (!available)
-      return bot.say.worngMessage(interaction, `\`${url}\` webpage is not available`);
+      return bot.say.wrongMessage(interaction, `\`${url}\` webpage is not available`);
 
     const isNSFW = await isNsfw(url);
 
     if (!interaction.channel?.nsfw && isNSFW)
-      return bot.say.worngMessage(interaction, "Cannot display NSFW webpage on non-NSFW channel.");
+      return bot.say.wrongMessage(interaction, "Cannot display NSFW webpage on non-NSFW channel.");
 
     const result = `${CAPTURE_URL}${url}`;
     const attachment = new DJS.MessageAttachment(result, "webpage.png");

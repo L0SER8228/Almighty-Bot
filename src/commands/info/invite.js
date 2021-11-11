@@ -19,7 +19,7 @@ module.exports = {
     const invite = await bot.fetchInvite(resolveCode(code)).catch(() => null);
 
     if (!invite)
-      return bot.say.worngMessage(interaction, `No info was found about \`${code}\`.`);
+      return bot.say.wrongMessage(interaction, `No info was found about \`${code}\`.`);
 
     const doesInviteExpire = !!invite.expiresAt;
 
@@ -46,13 +46,13 @@ module.exports = {
     const embed = bot.say.baseEmbed(interaction)
       .setTitle(`Invite: ${invite.code}`)
       .setDescription(invite.guild?.description || "No guild description")
-      .addField("Information",
+      .addField("__**Information**__",
         `**Uses:** ${usesStr}
 **Guild;** ${invite.guild?.name ?? "Unknown"} (${invite.guild?.id ?? "Unknown"})
 **Channel:** ${invite.channel.name}
 **Inviter;** ${inviter}
       `)
-      .addField("Expiration",
+      .addField("**__Expiration__**",
         `**Expires:** ${expiresAt}
 **Expired at;** ${expiredAt}`
       );

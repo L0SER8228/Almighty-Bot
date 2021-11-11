@@ -17,8 +17,8 @@ module.exports = {
         .setDescription(
           `**Name**: ${channel.name}
           **Id**: ${channel.id}
-          **Type**: ${channel.type}
-        `);
+          **Type**: ${channel.type}`
+        );
 
       await webhook.send({ embeds: [embed] });
     } catch (err) {

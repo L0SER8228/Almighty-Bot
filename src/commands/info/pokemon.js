@@ -19,7 +19,7 @@ module.exports = {
     const data = await fetch(`https://some-random-api.ml/pokedex?pokemon=${encodeURIComponent(query)}`).then((res) => res.json());
 
     if (!data)
-      return bot.say.worngMessage(interaction, `No info was found about \`${query}\`.`);
+      return bot.say.wrongMessage(interaction, `No info was found about \`${query}\`.`);
 
     const embed = bot.say.baseEmbed(interaction)
       .setTitle(`${data.name}`)

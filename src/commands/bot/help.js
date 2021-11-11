@@ -14,17 +14,20 @@ module.exports = {
     required: false
   }],
   execute(bot, interaction) {
-    const arg = interaction.options.getString("command", false);
+    const args = interaction.options.getString("command", false);
+    const arg = args?.replace(" ", "_");
+    const cmdArg = arg?.toLowerCase();
 
-    if (arg) {
-      const cmd = bot.commands.get(arg);
+    if (cmdArg) {
+      const cmd = bot.commands.get(cmdArg);
       if (!cmd)
         return bot.say.wrongMessage(interaction, `No command was found named \`${arg}\`.`);
 
-      const cmdUsage = cmd.usage ? `\/${cmd.name} ${cmd.usage}` : `\/${cmd.name}`;
+      const cmdUsage = cmd.options?.length >= 1 ? `\/${args.toLowerCase()} ${cmd.options.map(o => o.required ?
+      `<${o.name}>`:`[${o.name}]`).join(" ")}` : `\/${args.toLowerCase()}`;
 
       const embed = bot.say.baseEmbed(interaction)
-        .setAuthor(`${cmd.category} command: ${cmd.name}`, bot.user.displayAvatarURL())
+        .setAuthor(`${cmd.category} command: ${cmdArg}`, bot.user.displayAvatarURL())
         .addField(`${cmdUsage}`, `${cmd.description ?? "Not specified"}`)
         .setFooter("[] : optional • <> : required • | : or");
 

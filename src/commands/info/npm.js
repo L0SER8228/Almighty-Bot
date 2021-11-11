@@ -24,7 +24,7 @@ module.exports = {
     });
 
     if (foundPackages.length <= 0)
-      return bot.say.worngMessage(interaction, `No npm data was found about \`${query}\`.`);
+      return bot.say.wrongMessage(interaction, `No npm data was found about \`${query}\`.`);
 
     // most accurate package
     const accuratePackage = foundPackages.find((d) => d.searchScore > 10000);

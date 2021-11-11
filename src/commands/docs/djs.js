@@ -41,17 +41,9 @@ module.exports = {
     const data = await fetch(url).then((res) => res.json());
 
     if (!data || data.message || data.error)
-      return bot.say.worngMessage(interaction, `Nothing found about \`${query}\` on ${branch} branch on discord.js docs.`);
+      return bot.say.wrongMessage(interaction, `Nothing found about \`${query}\` on ${branch} branch on discord.js docs.`);
 
-    const embed = new MessageEmbed({
-      ...data,
-      footer: {
-        text: interaction.user.tag,
-        icon_url: interaction.user.displayAvatarURL({
-          dynamic: true
-        })
-      }
-    });
+    const embed = new MessageEmbed({ ...data });
 
     return interaction.editReply({ embeds: [embed] });
   }

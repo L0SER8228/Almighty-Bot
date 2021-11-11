@@ -17,7 +17,7 @@ module.exports = {
     const foundEmoji = findEmoji(interaction.guild, emoji);
 
     if (!foundEmoji)
-      return bot.say.worngMessage(interaction, "That emoji was not found.");
+      return bot.say.wrongMessage(interaction, "That emoji was not found.");
 
     let emojiAuthor = null;
 

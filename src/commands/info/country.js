@@ -22,7 +22,7 @@ module.exports = {
     const [country] = data;
 
     if (data.message || !country) {
-      return bot.say.worngMessage(interaction, `No data was found about the country \`${query}\`.`);
+      return bot.say.wrongMessage(interaction, `No data was found about the country \`${query}\`.`);
     }
 
     const name = country.name || "N/A";
@@ -41,12 +41,11 @@ module.exports = {
     const embed = bot.say.baseEmbed(interaction)
       .setAuthor(name)
       .setTitle(nativeName)
-      .setDescription(`
-**Alpha Code:** ${alphaCode}
+      .setDescription(`**Alpha Code:** ${alphaCode}
 **Region:** ${region}
 **Capital:** ${capital}
-**Population*:* ${population}
-      `)
+**Population*:* ${population}`
+      )
       .addField("Calling Codes:", callingCodes, true)
       .addField("Domains:", domains, true)
       .addField("Languages:", languages, true)

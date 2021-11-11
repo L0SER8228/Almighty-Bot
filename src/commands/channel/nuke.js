@@ -3,7 +3,7 @@ const DJS = require("discord.js");
 module.exports = {
   commandName: "channel",
   name: "nuke",
-  description: "Nuke a channel. Note: The channel will instantly be deleted and re-created.",
+  description: "Nuke a channel.",
   category: "mod",
   botPermissions: [DJS.Permissions.FLAGS.MANAGE_CHANNELS],
   memberPermissions: [DJS.Permissions.FLAGS.ADMINISTRATOR],
@@ -29,10 +29,10 @@ module.exports = {
 
     const threadChannels = ["GUILD_NEWS_THREAD", "GUILD_PUBLIC_THREAD", "GUILD_PRIVATE_THREAD"];
     if (threadChannels.includes(channel.type))
-      return bot.say.worngMessage(interaction, `Cannot use this command for ${channel.toString()} channel.`);
+      return bot.say.wrongMessage(interaction, `Cannot use this command for ${channel.toString()} channel.`);
 
     if (!channel.deletable)
-      return bot.say.worngMessage(interaction, `${channel.toString()} channel can’t be nuked.`);
+      return bot.say.wrongMessage(interaction, `${channel.toString()} channel can’t be nuked.`);
 
     const embed = bot.say.baseEmbed("YELLOW")
       .setTitle(`Nuking ${channel.name} channel`)
@@ -40,24 +40,24 @@ module.exports = {
       
 - All **exiting messages** will be **deleted**
 - This **channel** will be **deleted**
-- A **new channel** will be **created**. (Note: The new channel will a clone of this channel, so name, topic, permissions, position will remain same.`);
+- A **new channel** will be **created**. \(Note: The new channel will a clone of this channel, so name, topic, permissions, position will remain same.\)`);
 
     const cancelEmbed = bot.say.baseEmbed("ORANGE")
       .setDescription("Alright, nuke cancelled");
 
-    const confirEmbed = bot.say.baseEmbed(interaction).setDescription(`💥 Nuked this channel.${reason ? ` Reason: \`${reason}\`` : ""}.`);
+    const confirmEmbed = bot.say.baseEmbed(interaction).setDescription(`💥 Nuked this channel.${reason ? ` Reason: \`${reason}\`` : ""}.`);
 
-    const confirmBtn = new MessageButton()
+    const confirmBtn = new DJS.MessageButton()
       .setStyle("SUCCESS")
       .setLabel("Sure, nuke it.")
       .setCustomId("confirm");
 
-    const cancelBtn = new MessageButton()
+    const cancelBtn = new DJS.MessageButton()
       .setStyle("SECONDARY")
       .setLabel("Nah, don't nuke.")
       .setCustomId("cancel");
 
-    const btnRow = new MessageActionRow()
+    const btnRow = new DJS.MessageActionRow()
       .addComponents([confirmBtn, cancelBtn]);
 
     const msg = await interaction.editReply({
@@ -66,7 +66,7 @@ module.exports = {
     });
 
     const collector = msg.createMessageComponentCollector({
-      filter: (ctx) => ctx.customId.endsWith(ra),
+      filter: (ctx) => ctx.user.id === interaction.user.id,
       time: 60000
     });
 

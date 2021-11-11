@@ -1,5 +1,5 @@
 module.exports = {
-  commandName: "util",
+  commandName: "user",
   name: "avatar",
   description: "View the avatar of a user",
   category: "utility",

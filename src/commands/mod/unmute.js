@@ -27,7 +27,7 @@ module.exports = {
     const muteRole = await bot.utils.findOrCreateMutedRole(interaction.guild);
 
     if (member.roles.cache.find((r) => r.id !== muteRole?.id))
-      return bot.say.worngMessage(interaction, `${member.toString()} is not muted.`);
+      return bot.say.wrongMessage(interaction, `${member.toString()} is not muted.`);
 
     interaction.guild.channels.cache.forEach((channel) => {
       if (channel instanceof DJS.ThreadChannel) return;

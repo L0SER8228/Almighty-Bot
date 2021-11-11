@@ -1,6 +1,15 @@
 {
   "music": "Music Commands",
-  "filters": "Audio Filters",
+  "mod": "Moderation Commands",
   "utility": "Utility Commands",
-  "botowner": "BotOwner Commands"
+  "fun": "Fun Commands",
+  "animal": "Animal Image Commands",
+  "social": "Social Commands",
+  "image": "Image Manipulation Commands",
+  "activity": "Activity Games Commands",
+  "admin": "Admin Commands (Server Settings)",
+  "misc": "Miscellaneous Commands",
+  "giveaway": "Giveaway Commands",
+  "info": "Information Commands",
+  "botowner": "Botonwer Only Commands"
 }

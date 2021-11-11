@@ -26,7 +26,7 @@ module.exports = {
     }
 
     if (data.message)
-      return bot.say.worngMessage(interaction, `Covid data was not found for \`${query}\` country.`);
+      return bot.say.wrongMessage(interaction, `Covid data was not found for \`${query}\` country.`);
 
     const title = data.country ? `Covid: ${data.country}` : "Covid";
 
@@ -47,7 +47,7 @@ module.exports = {
       .addField("Tests", formatNum(data.tests), true)
       .setThumbnail(data.countryInfo?.flag || "")
       .setFooter(
-        `Data last updated on: ${time(new Date(country.updated), "f")}`,
+        `Data last updated on: ${time(new Date(data.updated), "f")}`,
         interaction.user.displayAvatarURL({ dynamic: true })
       );
 

@@ -11,6 +11,6 @@ module.exports = {
       dj_role: null
     });
 
-    return bot.say.successMessage(interaction, "Reset the dj role");
+    return bot.say.successMessage(interaction, "Reset the dj role.");
   }
 };

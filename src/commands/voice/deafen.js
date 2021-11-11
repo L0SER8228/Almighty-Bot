@@ -26,10 +26,10 @@ module.exports = {
     const reason = interaction.options.getString("reason", false) ?? "Not specified";
 
     if (!member.voice?.channel)
-      return bot.say.worngMessage(interaction, `${member.toString()} is not in any voice channel.`);
+      return bot.say.wrongMessage(interaction, `${member.toString()} is not in any voice channel.`);
 
     if (member.voice?.serverDeaf)
-      return bot.say.worngMessage(interaction, `${member.toString()} is already server deafed.`);
+      return bot.say.wrongMessage(interaction, `${member.toString()} is already server deafed.`);
 
     member.voice.setDeaf(true, reason);
 

@@ -34,7 +34,7 @@ module.exports = {
     const duration = bot.utils.parseMilliseconds(timeString);
 
     if (!duration)
-      return bot.say.worngMessage(interaction, "Provide a valid end time. (i,e. 1h, 2days, 5min)");
+      return bot.say.wrongMessage(interaction, "Provide a valid end time. (i,e. 1h, 2days, 5min)");
 
     await bot.giveawayManager.start(interaction.channel, {
       duration,

@@ -13,7 +13,7 @@ module.exports = {
     const user = interaction.options.getUser("user", false) ?? interaction.user;
     const userTag = interaction.user.id === user.id ? "themselves" : user.username;
 
-    const data = await neko.sfw.kiss();
+    const data = await bot.neko.sfw.kiss();
 
     const embed = bot.say.baseEmbed(interaction)
       .setTitle(`${interaction.user.username} kissed ${userTag}`)

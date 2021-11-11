@@ -32,14 +32,14 @@ module.exports = {
     const days = interaction.options.getNumber("history") ?? 0;
 
     if (!member.manageable || !member.bannable)
-      return bot.say.worngMessage(interaction, `Can't ban ${member.toString()}.`);
+      return bot.say.wrongMessage(interaction, `Can't ban ${member.toString()}.`);
 
     await member.ban({
       days,
       reason: `Banned by: ${interaction.user.tag}\nReason: ${reason}`
     });
 
-    await bot.say.directMessage(user, `You've been banned from ${interaction.guild?.name}. Reason: \`${reason}\`.`);
+    await bot.say.directMessage(member, `You've been banned from ${interaction.guild?.name}. Reason: \`${reason}\`.`);
 
     return bot.say.successMessage(interaction, `Banned ${member.user.tag} from the server. Reason: \`${reason}\`.`);
   }

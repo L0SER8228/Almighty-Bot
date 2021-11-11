@@ -27,10 +27,10 @@ module.exports = {
 
     const threadChannels = ["GUILD_NEWS_THREAD", "GUILD_PUBLIC_THREAD", "GUILD_PRIVATE_THREAD"];
     if (threadChannels.includes(channel.type))
-      return bot.say.worngMessage(interaction, `Can’t run this command for ${channel.toString()} channel.`);
+      return bot.say.wrongMessage(interaction, `Can’t run this command for ${channel.toString()} channel.`);
 
     if (!channel.permissionsFor(interaction.guildId)?.has(DJS.Permissions.FLAGS.SEND_MESSAGES))
-      return bot.say.worngMessage(interaction, `${channel.toString()} channel is already locked.`);
+      return bot.say.wrongMessage(interaction, `${channel.toString()} channel is already locked.`);
 
     await channel.permissionOverwrites.create(interaction.guildId, {
       SEND_MESSAGES: false

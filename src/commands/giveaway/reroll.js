@@ -18,7 +18,7 @@ module.exports = {
     const reroll = await bot.giveawayManager.reroll(messageId).catch(() => null);
 
     if (reroll === null)
-      return bot.say.worngMessage(interaction, `No giveaway is found with id \`${id}\`.`);
+      return bot.say.wrongMessage(interaction, `No giveaway is found with id \`${id}\`.`);
 
     return bot.say.successMessage(interaction, `Successfully rerolled the giveaway with id \`${id}\`.`);
   }

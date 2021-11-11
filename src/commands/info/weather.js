@@ -22,7 +22,7 @@ module.exports = {
     const data = await fetch(url).then((res) => res.json());
 
     if (data.cod === 404 || data.cod === 401)
-      return bot.say.worngMessage(interaction, `No data was found about \`${query}\`.`);
+      return bot.say.wrongMessage(interaction, `No data was found about \`${query}\`.`);
 
     const main = data.weather[0].main.toString();
     const desc = data.weather[0].description.toString();
@@ -43,7 +43,7 @@ module.exports = {
   **Wind Speed:** ${windSpeed}km/h
   **Wind Degrees:** ${windDeg}`
       )
-      .addField("Temperature",
+      .addField("**__Temperature__**",
         `**Current:** ${temp}°C
   **Feels Like:** ${feelsLike}°C`
       )

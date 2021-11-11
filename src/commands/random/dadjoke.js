@@ -2,7 +2,7 @@ const fetch = require("node-fetch");
 
 module.exports = {
   commandName: "random",
-  name: "dad-joke",
+  name: "dadjoke",
   description: "Tells a dad joke",
   category: "fun",
   async execute(bot, interaction) {

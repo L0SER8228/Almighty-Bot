@@ -17,7 +17,7 @@ module.exports = {
     const channel = interaction.options.getChannel("channel", false) ?? interaction.channel;
 
     if (!channel)
-      return bot.say.worngMessage(interaction, "The channel was not found", true);
+      return bot.say.wrongMessage(interaction, "The channel was not found", true);
 
     const topic = channel.topic ?? "\`None\`";
     const type = channel.type;

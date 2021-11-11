@@ -18,10 +18,10 @@ module.exports = {
     const amount = interaction.options.getNumber("amount", true);
 
     if (amount < 1 || amount > 100)
-      return bot.say.worngMessage(interaction, "Provide a valid amount between 1 to 100");
+      return bot.say.wrongMessage(interaction, "Provide a valid amount between 1 to 100");
 
     const deleted = interaction.channel.bulkDelete(amount);
 
-    return bot.say.successMessage(interaction, `${deleted.size} messages has been deleted.`, true);
+    return bot.say.successMessage(interaction, `${deleted.cache.size} messages has been deleted.`, true);
   }
 };

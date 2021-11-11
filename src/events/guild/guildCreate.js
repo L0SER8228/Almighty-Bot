@@ -14,6 +14,8 @@ module.exports = {
       if (!bot.utils.havePermissions(channel))
         channel = guild.channels.cache.find((ch) => bot.utils.havePermissions(ch) && ch.type === "GUILD_TEXT");
 
+      if (!channel) return;
+
       const embed = bot.say.baseEmbed()
         .setAuthor("Thanks for inviting me!", bot.user.displayAvatarURL())
         .setTitle(`My Prefix is **\`\/\`**`)

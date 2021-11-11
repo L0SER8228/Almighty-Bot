@@ -1,5 +1,4 @@
 const DJS = require("discord.js");
-const canvas = require("canvacord");
 
 module.exports = {
   name: "guildMemberAdd",
@@ -31,26 +30,13 @@ module.exports = {
 
       if (!channel.permissionsFor(guild.me)?.has(DJS.Permissions.FLAGS.SEND_MESSAGES)) return;
 
-      const user = member.user;
-
-      let image = await new canvas.Welcome()
-        .setUsername(user.username)
-        .setDiscriminator(user.discriminator)
-        .setGuildName(guild.name)
-        .setMemberCount(guild.memberCount)
-        .setAvatar(user.displayAvatarURL({ dynamic: false, format: "png" }))
-        .setColor("border", "#4D5E94")
-        .setColor("username", "#D8BFD8")
-        .setColor("discriminator", "#D8BFD8")
-        .setColor("member-count", "#D8BFD8")
-        .setBackground("https://wallpapercave.com/wp/wp2563380.jpg")
-        .toAttachment();
-
-      let attachment = new DJS.MessageAttachment(image.toBuffer(), "welcome-card.png");
+      const embed = bot.say.baseEmbed(guild)
+        .setTitle(`${member.user.tag}`)
+        .setThumbnail(`${member.displayAvatarURL({ dynamic: true })}`);
 
       await channel.send({
         content: `Hey **${member.toString()}**, Welcome to **${guild.name}**`,
-        attachment
+        embeds: [embed]
       });
 
     } catch (err) {

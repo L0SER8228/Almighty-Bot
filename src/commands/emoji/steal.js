@@ -28,7 +28,7 @@ module.exports = {
     const customEmoji = DJS.Util.parseEmoji(emoji);
 
     if (!customEmoji.id)
-      return bot.say.worngMessage(interaction, "Invalid emoji provided.");
+      return bot.say.wrongMessage(interaction, "Invalid emoji provided.");
 
     const link = `https://cdn.discordapp.com/emojis/${customEmoji.id}.${
         customEmoji?.animated ? "gif" : "png"
@@ -38,7 +38,7 @@ module.exports = {
     try {
       await interaction.guild.emojis.create(link, name);
     } catch (err) {
-      return bot.say.worngMessage(interaction, `${err.message || "An unknown error occurred"}`);
+      return bot.say.wrongMessage(interaction, `${err.message || "An unknown error occurred"}`);
     }
 
     return bot.say.successMessage(interaction, `${emoji}, ${name} added successfully!`);

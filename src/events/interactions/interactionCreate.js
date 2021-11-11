@@ -76,7 +76,7 @@ module.exports = {
       if ((command.category === "botowner" || command.ownerOnly === true) && !owners.includes(interaction.user.id))
         return bot.say.wrongMessage(interaction, "This command can only be used by the bot owners.");
 
-      if (db.djMode && command.dj && !interaction.member.roles.cache.some((r) => r.id !== djRole))
+      if (!!db.djRole && command.dj && !interaction.member.roles.cache.some((r) => r.id !== djRole))
         return bot.say.wrongMessage(interaction, "Non DJs can't use this command.");
 
       await command.execute(bot, interaction, db);

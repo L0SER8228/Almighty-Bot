@@ -103,13 +103,13 @@ module.exports = {
     const footer = interaction.options.getBoolean("footer", false) ?? true;
 
     if (!channel.isText())
-      return bot.say.worngMessage(interaction, `${channel.toString()} is not a valid text channel.`);
+      return bot.say.wrongMessage(interaction, `${channel.toString()} is not a valid text channel.`);
 
     if (image && !isImageURL(image))
-      return bot.say.worngMessage(interaction, `\`${image}\` is not a valid image url.`);
+      return bot.say.wrongMessage(interaction, `\`${image}\` is not a valid image url.`);
 
     if (thumbnail && !isImageURL(thumbnail))
-      return bot.say.worngMessage(interaction, `\`${thumbnail}\` is not a valid thumbnail url.`);
+      return bot.say.wrongMessage(interaction, `\`${thumbnail}\` is not a valid thumbnail url.`);
 
     let embed = new DJS.MessageEmbed()
       .setDescription(text);

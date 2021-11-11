@@ -2,8 +2,8 @@ const { inlineCode, time } = require("@discordjs/builders");
 const badges = require("../../data/badges");
 
 module.exports = {
-  commandName: "util",
-  name: "userinfo",
+  commandName: "user",
+  name: "info",
   description: "Get information about a user",
   category: "utility",
   options: [{

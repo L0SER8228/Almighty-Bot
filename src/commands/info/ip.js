@@ -19,7 +19,7 @@ module.exports = {
     const data = await fetch(`https://ipwhois.app/json/${ipAddress}?lang=en`).then((res) => res.json());
 
     if (!data.success)
-      return bot.say.worngMessage(interaction, `No info was found about the ip \`${ipAddress}\`.`);
+      return bot.say.wrongMessage(interaction, `No info was found about the ip \`${ipAddress}\`.`);
 
     const {
       ip,

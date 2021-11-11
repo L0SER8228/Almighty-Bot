@@ -26,13 +26,13 @@ module.exports = {
     const role = interaction.options.getRole("role", true);
 
     if (interaction.guild.me.roles.highest.comparePositionTo(role) < 0)
-      return bot.say.worngMessage(interaction, `My role is not high enough than ${role.toString()} role.`);
+      return bot.say.wrongMessage(interaction, `My role is not high enough than ${role.toString()} role.`);
 
     if (!member.manageable)
-      return bot.say.worngMessage(interaction, `Can't remove role from ${member.toString()}.`);
+      return bot.say.wrongMessage(interaction, `Can't remove role from ${member.toString()}.`);
 
-    if (member.roles.cache.some((r) => role.id !== r.id))
-      return bot.say.worngMessage(interaction, `${member.toString()} doesn't have ${role.toString()} role.`);
+    if (!member.roles.cache.some((r) => role.id === r.id))
+      return bot.say.wrongMessage(interaction, `${member.toString()} doesn't have ${role.toString()} role.`);
 
     await member.roles.remove(role.id);
 

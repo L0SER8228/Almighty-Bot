@@ -18,7 +18,7 @@ module.exports = {
     const deleted = await bot.giveawayManager.delete(messageId).catch(() => null);
 
     if (deleted === null)
-      return bot.say.worngMessage(interaction, `Giveaway with id \`${id}\` was already ended.`);
+      return bot.say.wrongMessage(interaction, `Giveaway with id \`${id}\` was already ended.`);
 
     return bot.say.successMessage(interaction, `Successfully ended giveaway with id \`${id}\`.`);
   }

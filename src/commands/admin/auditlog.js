@@ -14,9 +14,12 @@ module.exports = {
 
     const channel = interaction.options.getChannel("channel", true);
 
+    if (channel.type !== "GUILD_TEXT")
+      return bot.say.wrongMessage(interaction, `${channel.toString()} is not a valid text channel.`);
+
     const oldHookId = db.audit_webhook;
 
-    await bot.utils.createLogHook(bot, channel.id,oldHookId);
+    await bot.utils.createLogHook(bot, channel.id, oldHookId);
 
     return bot.say.successMessage(interaction, `${channel.toString()} has been set as auditlog channel.`);
   }

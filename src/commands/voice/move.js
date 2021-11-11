@@ -33,10 +33,10 @@ module.exports = {
     const reason = interaction.options.getString("reason", false) ?? "Not specified";
 
     if (!member?.voice?.channel)
-      return bot.say.worngMessage(interaction, `${member.toString()} is not in any voice channel.`);
+      return bot.say.wrongMessage(interaction, `${member.toString()} is not in any voice channel.`);
 
     if (!channel.isVoice())
-      return bot.say.worngMessage(interaction, "Provide a valid guild voice channel.");
+      return bot.say.wrongMessage(interaction, "Provide a valid guild voice channel.");
 
     member.voice.setChannel(channel, reason);
 

@@ -33,7 +33,7 @@ module.exports = async function loadCommands(bot) {
       }
     } else {
       commandName = command.name;
-
+/*
       const data = {
         type: "CHAT_INPUT",
         name: command.name,
@@ -42,6 +42,7 @@ module.exports = async function loadCommands(bot) {
       };
 
       await bot.application?.commands.create(data);
+ */
     }
 
     delete require.cache[require.resolve(`../../${file}`)];

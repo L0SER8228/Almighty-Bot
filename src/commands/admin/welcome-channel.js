@@ -15,6 +15,9 @@ module.exports = {
 
     const channel = interaction.options.getChannel("channel", true);
 
+    if (channel.type !== "GUILD_TEXT")
+      return bot.say.wrongMessage(interaction, `${channel.toString()} is not a valid text channel.`);
+
     await bot.utils.updateGuild(guildId, {
       welcome_channel: channel.id
     });

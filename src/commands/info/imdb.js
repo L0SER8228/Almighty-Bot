@@ -20,7 +20,7 @@ module.exports = {
     const movie = await imdb.get({ name: query }).catch(() => null);
 
     if (!movie)
-      return bot.say.worngMessage(interaction, `No data was found about \`${query}\`on IMDB.`);
+      return bot.say.wrongMessage(interaction, `No data was found about \`${query}\`on IMDB.`);
 
     const released = new Date(Number(movie.released)).toLocaleDateString();
 

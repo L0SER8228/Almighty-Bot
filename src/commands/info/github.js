@@ -21,7 +21,7 @@ module.exports = {
     const user = await fetch(url).then((res) => res.json());
 
     if (user?.message === "Not Found")
-      return bot.say.worngMessage(interaction, `No github account was found matching \`${query}\`.`);
+      return bot.say.wrongMessage(interaction, `No github account was found matching \`${query}\`.`);
 
     const twitter = user.twitter_username ?
       hyperlink(`@${user.twitter_username}`, `https://twitter.com/${user.twitter_username}`) : "N/A";

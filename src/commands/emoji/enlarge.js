@@ -26,7 +26,7 @@ module.exports = {
     } else {
       const [parsed] = parse(emoji, { assetType: "png" });
       if (!parsed)
-        return bot.say.worngMessage(interaction, "Provided emoji is invalid.");
+        return bot.say.wrongMessage(interaction, "Provided emoji is invalid.");
       embed.setImage(parsed.url);
     }
 

@@ -21,7 +21,7 @@ module.exports = {
     const data = await fetch(url).then((res) => res.json());
 
     if (data.error)
-      return bot.say.worngMessage(interaction, `No minecraft info was found about \`${query}\`.`);
+      return bot.say.wrongMessage(interaction, `No minecraft info was found about \`${query}\`.`);
 
     const status = data.status === "online" ? "Online" : "Offline";
     const players = data.players?.now.toString() ?? "Unknown";

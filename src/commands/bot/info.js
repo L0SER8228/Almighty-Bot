@@ -14,20 +14,20 @@ module.exports = {
 
     const embed = bot.say.baseEmbed(interaction)
       .setAuthor(`${bot.user.username}’s Information`, bot.user.displayAvatarURL())
-      .addField("General Info",
+      .addField("__**General Info**__",
         `**Bot Id:** ${bot.user.id}
 **Bot Tag:** ${bot.user.tag}
 **Created At :** ${createdAt.toDateString()}
 **Developer: [L0SER#8228](https:\/\/l0ser.is-a.dev)**
 **Prefix:** \/`
       )
-      .addField("Bot Stats",
+      .addField("__**Bot Stats**__",
         `**Users:** ${util.formatNumber(users)}
 **Servers:** ${util.formatNumber(bot.guilds.cache.size)}
 **Channels:** ${util.formatNumber(bot.channels.cache.size)}
 **Command Count:** ${util.formatNumber(bot.commands.size)}`
       )
-      .addField("System Info",
+      .addField("__**System Info**__",
         `**RAM Usage:**  ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB
 **Bot Uptime:** ${uptime}
 **Node Version:** ${process.version}

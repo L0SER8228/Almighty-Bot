@@ -27,7 +27,7 @@ module.exports = {
     const muteRole = await bot.utils.findOrCreateMutedRole(interaction.guild);
 
     if (member.roles.cache.find((r) => r.id === muteRole?.id))
-      return bot.say.worngMessage(interaction, `${member.toString()} is already muted.`);
+      return bot.say.wrongMessage(interaction, `${member.toString()} is already muted.`);
 
     await bot.say.successMessage(interaction, `${member.user.toString()} has been muted. Reason: \`${reason}\`.`);
     await bot.say.directMessage(member, `You've been muted on ${interaction.guild.name}. Reason: \`${reason}\`.`);

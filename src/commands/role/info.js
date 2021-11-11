@@ -27,8 +27,7 @@ module.exports = {
       .setTitle(`**${role.name}**`)
       .setColor(color)
       .setDescription(
-        `
-**Position:** ${position}
+        `**Position:** ${position}
 **Mentionable:** ${mentionable}
 **Id:** ${role.id}
 **Hex Color:** ${hexColor}
@@ -46,8 +45,10 @@ function getPermissions(role, bot) {
 
   return perms.toArray().length <= 0 ?
     "\`none\`" :
-    `${codeBlock(perms.
-  toArray()
-  .map((p) => bot.utils.toCapitalize(`${p.replace("_", " ")}`)
-  .join(", ")))}`;
+    `${codeBlock(perms.toArray().map((p) => formatCase(p, bot)).join(", "))}`;
+}
+
+function formatCase(arg, bot) {
+  const text = arg.replace("_", " ");
+  return bot.utils.toCapitalize(text);
 }

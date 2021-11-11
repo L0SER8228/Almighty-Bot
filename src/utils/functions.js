@@ -164,7 +164,7 @@ async function createLogHook(bot, channelId, oldHookId) {
     await webhooks.find((w) => w.id === oldHookId)?.delete();
   }
 
-  const newHook = channel.createWebhook(bot.user.username, {
+  const newHook = await channel.createWebhook(bot.user.username, {
     avatar: bot.user.displayAvatarURL({ format: "png" })
   });
 

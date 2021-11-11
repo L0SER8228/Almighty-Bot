@@ -25,11 +25,11 @@ module.exports = {
     const reason = interaction.options.getString("reason", false) ?? "Not specified";
 
     if (!member.manageable | !member.kickable)
-      return bot.say.worngMessage(interaction, `Can't kick ${member.toString()}`);
+      return bot.say.wrongMessage(interaction, `Can't kick ${member.toString()}`);
 
     member.kick(reason);
 
-    await bot.say.directMessage(user, `You've been kicked from ${interaction.guild?.name}. Reason: \`${reason}\`.`);
+    await bot.say.directMessage(member, `You've been kicked from ${interaction.guild?.name}. Reason: \`${reason}\`.`);
 
     await bot.say.successMessage(interaction, `Kicked ${member.user.tag} from the server. Reason*: \`${reason}\`.`);
 

@@ -82,7 +82,7 @@ module.exports = {
       .catch((e) => e.message);
 
     if (pasteUrl.startsWith("Bad API request, invalid api_paste_format"))
-      return bot.say.worngMessage(interaction, "Provid a valid file format.");
+      return bot.say.wrongMessage(interaction, "Provid a valid file format.");
 
     return interaction.reply({ content: pasteUrl });
   }

@@ -26,10 +26,10 @@ module.exports = {
     const reason = interaction.options.getString("reason", false) ?? "Not specified";
 
     if (!member?.voice?.channel)
-      return bot.say.worngMessage(interaction, `${member.toString()} is not in any voice channel.`);
+      return bot.say.wrongMessage(interaction, `${member.toString()} is not in any voice channel.`);
 
     if (!member?.voice?.serverMute)
-      return bot.say.worngMessage(interaction, `${member.toString()} is already voice unmuted.`);
+      return bot.say.wrongMessage(interaction, `${member.toString()} is already voice unmuted.`);
 
     member.voice.setMute(false, reason);
 
