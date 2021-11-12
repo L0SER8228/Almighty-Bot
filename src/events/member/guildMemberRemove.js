@@ -1,4 +1,6 @@
 const DJS = require("discord.js");
+const { CanvasSenpai } = require("canvas-senpai")
+const canvas = new CanvasSenpai();
 
 module.exports = {
   name: "guildMemberRemove",
@@ -18,13 +20,13 @@ module.exports = {
 
       if (!channel.permissionsFor(guild.me)?.has(DJS.Permissions.FLAGS.SEND_MESSAGES)) return;
 
-      const embed = bot.say.baseEmbed("RED")
-        .setTitle(`${member.user.tag}`)
-        .setThumbnail(`${member.displayAvatarURL({ dynamic: true })}`);
+      const card = await canvas.welcome(member, { link: "https://wallpapercave.com/wp/wp2563380.jpg" })
+
+      const attachment = new DJS.MessageAttachment( card, "goodbye-card.png" );
 
       await channel.send({
         content: `${member.toString()}, just left us.`,
-        embeds: [embed]
+        files: [attachment]
       });
     } catch (err) {
       return bot.utils.sendErrorLog(bot, err, "error");

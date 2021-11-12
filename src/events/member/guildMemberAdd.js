@@ -1,4 +1,6 @@
 const DJS = require("discord.js");
+const { CanvasSenpai } = require("canvas-senpai")
+const canvas = new CanvasSenpai();
 
 module.exports = {
   name: "guildMemberAdd",
@@ -30,13 +32,13 @@ module.exports = {
 
       if (!channel.permissionsFor(guild.me)?.has(DJS.Permissions.FLAGS.SEND_MESSAGES)) return;
 
-      const embed = bot.say.baseEmbed(guild)
-        .setTitle(`${member.user.tag}`)
-        .setThumbnail(`${member.displayAvatarURL({ dynamic: true })}`);
+      const card = await canvas.welcome(member, { link: "https://wallpapercave.com/wp/wp2563380.jpg" })
+
+      const attachment = new DJS.MessageAttachment( card, "welcome-card.png" );
 
       await channel.send({
         content: `Hey **${member.toString()}**, Welcome to **${guild.name}**`,
-        embeds: [embed]
+        files: [attachment]
       });
 
     } catch (err) {

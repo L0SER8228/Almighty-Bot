@@ -42,7 +42,7 @@
     "@discordjs/opus": "^0.6.0",
     "@discordjs/voice": "^0.7.2",
     "@iamtraction/google-translate": "^1.1.2",
-    "canvas": "^2.8.0",
+    "canvas-senpai": "^2.0.3",
     "chalk": "^4.1.2",
     "discord-giveaways": "^5.0.0",
     "discord-logs": "^2.0.1",
@@ -62,5 +62,5 @@
     "parse-duration": "^1.0.1",
     "pastebin-api": "2.5.0",
     "ytdl-core": "^4.9.1"
-  }
+    }
 }

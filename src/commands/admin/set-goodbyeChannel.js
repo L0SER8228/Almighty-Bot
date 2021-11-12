@@ -1,7 +1,7 @@
 module.exports = {
   commandName: "config",
-  groupName: "goodbye",
-  name: "channel",
+  groupName: "set",
+  name: "goodbye-channel",
   category: "admin",
   description: "Set the goodbye channel",
   options: [{

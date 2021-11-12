@@ -1,7 +1,7 @@
 module.exports = {
   commandName: "config",
-  groupName: "welcome",
-  name: "role",
+  groupName: "set",
+  name: "welcome-role",
   category: "admin",
   description: "Set the welcome role",
   options: [{

@@ -1,8 +1,8 @@
 module.exports = {
   commandName: "config",
-  groupName: "dj",
+  groupName: "set",
   category: "admin",
-  name: "set",
+  name: "djrole",
   description: "Set music dj role",
   options: [{
     type: "ROLE",

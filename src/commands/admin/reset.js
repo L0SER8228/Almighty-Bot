@@ -2,11 +2,11 @@ module.exports = {
   commandName: "config",
   name: "reset",
   category: "admin",
-  description: "Reset guild config.",
+  description: "Reset guild specific config.",
   options: [{
     type: "STRING",
     name: "option",
-    description: "That specific settings",
+    description: "That specific setting",
     required: true,
     choices: [
       {
@@ -28,7 +28,12 @@ module.exports = {
       {
         name: "Mute Role",
         value: "muted_role"
+      },
+      {
+        name: "DJ Role",
+        value: "dj_role"
       }
+
     ]
   }],
   async execute(bot, interaction) {

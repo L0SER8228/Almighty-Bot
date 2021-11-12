@@ -1,9 +1,9 @@
 module.exports = {
   commandName: "config",
-  groupName: "welcome",
-  name: "channel",
+  groupName: "set",
+  name: "auditlog",
   category: "admin",
-  description: "Set the welcome channel",
+  description: "Set the auditlog channel",
   options: [{
     type: "CHANNEL",
     name: "channel",
@@ -18,10 +18,10 @@ module.exports = {
     if (channel.type !== "GUILD_TEXT")
       return bot.say.wrongMessage(interaction, `${channel.toString()} is not a valid text channel.`);
 
-    await bot.utils.updateGuild(guildId, {
-      welcome_channel: channel.id
-    });
+    const oldHookId = db.audit_webhook;
 
-    return bot.say.successMessage(interaction, `${channel.toString()} has been set as welcome channel.`);
+    await bot.utils.createLogHook(bot, channel.id, oldHookId);
+
+    return bot.say.successMessage(interaction, `${channel.toString()} has been set as auditlog channel.`);
   }
 };

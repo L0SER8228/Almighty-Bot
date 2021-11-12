@@ -21,11 +21,15 @@ module.exports = {
     }
   ],
   async execute(bot, interaction) {
-    const userId = interaction.options.getString("user-id", true);
-    const reason = interaction.options.getString("reason") ?? "Not specified";
+    try {
+      const userId = interaction.options.getString("user-id", true);
+      const reason = interaction.options.getString("reason") ?? "Not specified";
 
-    const bannedUser = await interaction.guild?.members.unban(userId);
+      const user = await interaction.guild.members?.unban(userId);
 
-    return bot.say.successMessage(interaction, ` ${bannedUser.tag} is unbanned. Reason: \`${reason}\`.`);
+      return bot.say.successMessage(interaction, ` ${user.tag} is unbanned. Reason: \`${reason}\`.`);
+    } catch {
+      return bot.say.wrongMessage(interaction, "That user is not banned.");
+    }
   }
 };
